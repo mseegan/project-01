@@ -3,6 +3,11 @@ $(document).ready(function() {
 
 	$('#cityAdd').on('submit', function addCity(event) {
 		event.preventDefault();
+		
+		var newOption = $("#cityForm").val();
+		$(".dropdownCities").append('<option value="'+newOption + '">'+newOption +'</option>');
+		
+	
 		console.log("city added");
 		
 	});
@@ -16,5 +21,6 @@ $(document).ready(function() {
 		$('#cityShow').css('display', 'inline-block');
 	});
 	
+
 	
 });
