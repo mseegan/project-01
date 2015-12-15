@@ -64,6 +64,14 @@ app.get('/api/city/:id/report', function showOneCity(req, res){
 //read one report
 
 
+app.get('/api/city/:cityId/report/:id', function showOneCity(req, res){
+	
+  db.City.findOne({_id: req.params.id}, function(err, city) {
+    res.json(city.reports);
+  });
+  
+});
+
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
