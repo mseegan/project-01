@@ -1,6 +1,12 @@
 $(document).ready(function() {
 	console.log("JS works!");
 
+	$('#renderCity').on('click', function pageTwo (event){
+		event.preventDefault();
+		window.location.href = '/city';
+
+	});
+
 	$('#cityAdd').on('submit', function addCity(event) {
 		var itemExists = false;
 		var newOption = $("#cityForm").val();

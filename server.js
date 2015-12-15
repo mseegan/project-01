@@ -23,7 +23,9 @@ app.get('/', function homepage (req, res) {
 });
 
 
-
+app.get('/city', function citypage (req, res){
+	res.sendFile(__dirname + '/views/city.html');
+});
 
 
 
