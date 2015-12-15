@@ -36,7 +36,7 @@ app.get('/api', function api_index (req, res){
     ]
   });
 });
-
+//read all cities
 app.get('/api/city', function showCity(req, res){
   db.City.find({}, function(err, city){
     if(err){console.log(err);}
@@ -44,6 +44,25 @@ app.get('/api/city', function showCity(req, res){
   });
   
 });
+//read one city
+app.get('/api/city/:id', function showOneCity(req, res){
+	console.log('requested city id=', req.params.id);
+  db.City.findOne({_id: req.params.id}, function(err, city) {
+    res.json(city);
+  });
+  
+});
+
+//read all reports
+app.get('/api/city/:id/report', function showOneCity(req, res){
+	
+  db.City.findOne({_id: req.params.id}, function(err, city) {
+    res.json(city.reports);
+  });
+  
+});
+//read one report
+
 
 
 app.listen(process.env.PORT || 3000, function () {

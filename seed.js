@@ -1,17 +1,30 @@
 var db = require("./models");
 
-var cityList = [
-	{
+var cityList = [];
+	
+cityList.push({
 	State: "California",
 	Name: "San Francisco",
+	
 	
 },
 {
-	State: "California",
-	Name: "San Francisco",
+	State: "Nueva York",
+	Name: "Ciudad de Nueva York",
 	
-}
-];
+});
+
+	var reportList = [];
+
+reportList.push({
+	// date: Date,
+	crossStreet1: "123 fake street",
+	crossStreet2: "456 not-fake street",
+	status: true
+});
+cityList.forEach(function(city){
+	city.reports = reportList;
+});
 
 
 db.City.remove({}, function(err, cities){

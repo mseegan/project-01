@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>City</title>
-	
+
 	<!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -15,7 +15,7 @@
   	<!-- vendor scripts -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- custom script -->
-  <script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript" src="/js/appCity.js"></script>
 
 </head>
 <body>
@@ -23,6 +23,22 @@
       <div class="container">
         <h1>SPOTHOLE</h1>
         <p>Recently Reported Potholes</p>
+          <div class="container">
+		    <div class="row">
+		      <div class="col-md-6 col-md-offset-3">
+		        <div id="results"></div>
+		        <!-- handlebars template -->
+		          <script id="entry-template" type="text/x-handlebars-template">
+		  			<div class="entry">
+		    				<h1>{{title}}</h1>
+		    			<div class="body">
+		      				{{body}}
+		    			</div>
+		  			</div>
+				  </script>
+		      </div>
+		    </div>
+		  </div>
       </div>
     </div>
 </body>
