@@ -2,14 +2,21 @@ $(document).ready(function() {
 	console.log("JS works!");
 
 	$('#cityAdd').on('submit', function addCity(event) {
-		event.preventDefault();
-		
+		var itemExists = false;
 		var newOption = $("#cityForm").val();
+
+		event.preventDefault();
+		$('.dropdownCities option').each(function(){
+		if ($(this).text() == $.trim(newOption)) {
+			itemExists = true;
+			console.log('this city already exists');
+			}
+		});
+		if(!itemExists) {
 		$(".dropdownCities").append('<option value="'+newOption + '">'+newOption +'</option>');
-		
-	
 		console.log("city added");
-		
+
+		}
 	});
 
 	$('#hiddenForm').on('click', function unHideCity(event) {
