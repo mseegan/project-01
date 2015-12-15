@@ -3,5 +3,5 @@ var mongoose = require('mongoose');
 var city = require('./city');
 var report = require('./report'); 
 
-module.exports.report = report;
-module.exports.report = report;
+module.exports.City = city;
+module.exports.Report = report;

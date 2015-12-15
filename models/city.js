@@ -1,13 +1,14 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var report = require('./report');
+// var Report = require('./report');
 
 var citySchema = new Schema({
 	State: String,
-	reports: [report.schema]
+	name: String,
+	// reports: [Report.schema]
 });
 
-var city = mongoose.model('city', citySchema);
+var City = mongoose.model('City', citySchema);
 
-module.exports = city;
+module.exports = City;
