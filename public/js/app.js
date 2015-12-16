@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	console.log("JS works!");
 
-
+	//handlebar template for dropdown menu contents
 	var source = $("#dropdown-template").html();
 	// console.log(source);
 	var template = Handlebars.compile(source);
@@ -15,28 +15,31 @@ $(document).ready(function() {
 	});
 
 
-
+	//sends you to the selected city's endpoint
 	$('#renderCity').on('click', function pageTwo (event){
 		event.preventDefault();
 		var selectId = $('#dropdownMenu option:selected').attr('data-id');
 		console.log(selectId);
-		window.location.href = '/city' + '/' + selectId;
+		window.location.href = '/city';
 
 		
 
 	});
-
+	//create new city
 	$('#cityAdd').on('submit', function addCity(event) {
 		var itemExists = false;
 		var newOption = $("#cityForm").val();
 
 		event.preventDefault();
 		$('.dropdownCities option').each(function(){
+			//checks for duplicate entry
 		if ($(this).text() == $.trim(newOption)) {
 			itemExists = true;
+			//if duplicate exists, do nothing.
 			console.log('this city already exists');
 			}
 		});
+			//if no duplicates found, continue with create
 		if(!itemExists) {
 			var formData = $('#formData').serialize();
 			var cityData = $('#cityForm').val();
@@ -44,7 +47,7 @@ $(document).ready(function() {
 			console.log(formData);
 			console.log(cityData);
 			console.log(stateData);
-
+			
 			$.ajax({
 				method: 'POST',
 				url: '/api/city',
@@ -63,7 +66,7 @@ $(document).ready(function() {
 
 		}
 	});
-
+	//makes a hidden city creation form visible on button press
 	$('#hiddenForm').on('click', function unHideCity(event) {
 		event.preventDefault();
 
