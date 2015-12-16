@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Make Template Later</title>
+	<!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  
+	<!-- jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  	<!-- vendor scripts -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- custom script -->
+  <script type="text/javascript" src="/js/appPotholes.js"></script>
+</head>
+<body>
+	<!-- handlebars template -->
+              <script id="pothole-template" type="text/x-handlebars-template">
+                  {{#each city}}
+                  <p class="city" data-id="{{_id}}">
+                    {{reports}}
+                  </p>
+                {{/each}}
+              </script>
+              <div id="start-point">
+              </div>
+</body>
+</html>

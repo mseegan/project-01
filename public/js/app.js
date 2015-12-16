@@ -20,7 +20,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var selectId = $('#dropdownMenu option:selected').attr('data-id');
 		console.log(selectId);
-		window.location.href = '/city';
+		window.location.href = '/city/' + selectId;
 
 		
 
@@ -44,9 +44,9 @@ $(document).ready(function() {
 			var formData = $('#formData').serialize();
 			var cityData = $('#cityForm').val();
 			var stateData = $('#stateForm').val();
-			console.log(formData);
-			console.log(cityData);
-			console.log(stateData);
+			// console.log(formData);
+			// console.log(cityData);
+			// console.log(stateData);
 			
 			$.ajax({
 				method: 'POST',

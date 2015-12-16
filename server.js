@@ -25,6 +25,9 @@ app.get('/city', function citypage (req, res){
 	res.sendFile(__dirname + '/views/city.html');
 });
 
+app.get('/city/:id', function (req, res){
+  res.sendFile(__dirname + '/views/cities/show.html');
+});
 
 // API Endpoints
 
@@ -66,7 +69,7 @@ app.post('/api/city', function cityCreate(req, res) {
 
 });
 
-//destroy a city
+
 
 
 //read all reports
@@ -77,7 +80,7 @@ app.get('/api/city/:id/report', function showOneCity(req, res){
   });
   
 });
-//read one report
+
 
 
 app.listen(process.env.PORT || 3000, function () {

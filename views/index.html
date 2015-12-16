@@ -22,15 +22,7 @@
   	Choose Your City
   </h1>
   	<select class="dropdownCities" id="dropdownMenu">
-			 <!-- handlebars template -->
-              <script id="dropdown-template" type="text/x-handlebars-template">
-                  {{#each city}}
-                <option class="city" data-id="{{_id}}">
-                  {{Name}},{{State}}
-                  </div>
-                </option>
-              {{/each}}
-          </script>
+			 
 		</select>
     <button class="submit" type="submit" value="send" id="renderCity">Go</button>
   	</div>
@@ -50,5 +42,13 @@
       </fieldset> 
       </section>
   	</div>
+    <!-- handlebars template -->
+              <script id="dropdown-template" type="text/x-handlebars-template">
+                  {{#each city}}
+                  <option class="city" data-id="{{_id}}">
+                    {{Name}},{{State}}
+                  </option>
+                {{/each}}
+              </script>
 </body>
 </html>
