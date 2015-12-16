@@ -13,13 +13,19 @@ $(document).ready(function() {
 		console.log("handlebars appended city");
 	});
 
-	$.post('/api/albums', formData, function(album) {
-       console.log('album after POST', album);
-     source(album);  
-     });
-     $(this).trigger("reset");
- 
+	$('#createButton').on('click',function (event){
+		event.preventDefault();
+		alert("thomas is the best");
+	});
 
+
+
+	// $.post('/api/city', formData, function(city) {
+ //       console.log('city after POST', city);
+ //     source(city);  
+ //     });
+ //     $(this).trigger("reset");
+ 
 });
 
 

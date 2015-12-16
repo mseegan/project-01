@@ -19,8 +19,26 @@ $(document).ready(function() {
 			}
 		});
 		if(!itemExists) {
-		$(".dropdownCities").append('<option value="'+newOption + '">'+newOption +'</option>');
-		console.log("city added");
+			var formData = $('#formData').serialize();
+			var cityData = $('#cityForm').val();
+			var stateData = $('#stateForm').val();
+			console.log(formData);
+			console.log(cityData);
+			console.log(stateData);
+
+			$.ajax({
+				method: 'POST',
+				url: '/api/city',
+				data: formData,
+				success: function(data){
+					$(".dropdownCities").append('<option value="'+newOption + '">'+newOption +'</option>');
+					console.log("city added");
+				}
+			});
+			
+
+			
+		
 
 		}
 	});
@@ -33,6 +51,7 @@ $(document).ready(function() {
 
 		$('#cityShow').css('display', 'inline-block');
 	});
+	
 	
 
 	

@@ -30,11 +30,18 @@
   	<div>
   		Don't see your city here?  <button type="button" id='hiddenForm'>Add it!</button> 
     </div>
+
+    
     <div id='cityShow'>
-  		<form id="cityAdd">
-  			<input id="cityForm" type="text" placeholder="your city">
-        <button class="submit" type="submit" value="send">Add City</button>
-  		</form> 
+    <section id="cityAdd">
+    <fieldset>
+  		<form id="formData">
+  			<input id="cityForm" type="text" name="city" placeholder="your city">
+        <input id="stateForm" type="text" name="state" placeholder="your state">
+        <button class="submit" id="createButton" type="submit" name="button" value="send">Add City</button>
+  		</form>
+      </fieldset> 
+      </section>
   	</div>
 </body>
 </html>
