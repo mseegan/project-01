@@ -18,7 +18,11 @@ $(document).ready(function() {
 
 	$('#renderCity').on('click', function pageTwo (event){
 		event.preventDefault();
-		window.location.href = '/city';
+		var selectId = $('#dropdownMenu option:selected').attr('data-id');
+		console.log(selectId);
+		window.location.href = '/city' + '/' + selectId;
+
+		
 
 	});
 
