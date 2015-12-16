@@ -53,6 +53,21 @@ app.get('/api/city/:id', function showOneCity(req, res){
   
 });
 
+//create a city
+app.post('/api/city', function cityCreate(req, res) {
+  console.log('body', req.body);
+
+  db.City.create(req.body, function(err, city) {
+    if (err) { console.log('error', err); }
+    console.log(city);
+    res.json(city);
+  });
+
+});
+
+//destroy a city
+
+
 //read all reports
 app.get('/api/city/:id/report', function showOneCity(req, res){
 	
@@ -62,15 +77,6 @@ app.get('/api/city/:id/report', function showOneCity(req, res){
   
 });
 //read one report
-
-
-app.get('/api/city/:cityId/report/:id', function showOneCity(req, res){
-	
-  db.City.findOne({_id: req.params.id}, function(err, city) {
-    res.json(city.reports);
-  });
-  
-});
 
 
 app.listen(process.env.PORT || 3000, function () {

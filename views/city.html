@@ -28,13 +28,15 @@
 		      <div class="col-md-6 col-md-offset-3">
 		        <div id="results"></div>
 		        <!-- handlebars template -->
-		          <script id="entry-template" type="text/x-handlebars-template">
-		  			<div class="entry">
+		          <script id="city-template" type="text/x-handlebars-template">
+		          	{{#each city}}
+		  			<div class="list-goup-item city" data-id="{{_id}}">
 		    				<h1>{{title}}</h1>
 		    			<div class="body">
 		      				{{body}}
 		    			</div>
 		  			</div>
+		  			{{/each}}
 				  </script>
 		      </div>
 		    </div>
