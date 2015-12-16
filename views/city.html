@@ -18,30 +18,52 @@
   <script type="text/javascript" src="/js/appCity.js"></script>
 
 </head>
+
 <body>
-  <div class="background">
-      <div class="container">
-        <h1>SPOTHOLE</h1>
-        <p>Recently Reported Potholes</p>
-          <div class="container">
-		    <div class="row">
-		      <div class="col-md-6 col-md-offset-3">
-		        <div id="results"></div>
-		        <!-- handlebars template -->
-		          <script id="city-template" type="text/x-handlebars-template">
-		          	{{#each city}}
-		  			<div class="list-goup-item city" data-id="{{_id}}">
-		    				<h1>{{title}}</h1>
-		    			<div class="body">
-		      				{{body}}
-		    			</div>
-		  			</div>
-		  			{{/each}}
-				  </script>
-		      </div>
-		    </div>
-		  </div>
+
+	    <div class="container">
+	        <h1>SPOTHOLE</h1>
+	        <p>Recently Reported Potholes</p>
+
+			    <div id="results"></div>
+			        <!-- handlebars template -->
+			        <script id="city-template" type="text/x-handlebars-template">
+			          	{{#each city}}
+				  			<div class="list-goup-item city" data-id="{{_id}}">
+				    			<h1>{{Name}}</h1>
+				    			<div class="body">
+				      				{{State}}
+				    			</div>
+				  			</div>
+			  			{{/each}}
+					</script>
+					<div id="start-point"></div>
+			       
+				</div>
+	    </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Report New Pothole
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Report Pothole</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
+  </div>
+</div>
 </body>
+
 </html>

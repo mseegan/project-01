@@ -17,7 +17,7 @@ cityList.push({
 	var reportList = [];
 
 reportList.push({
-	// date: Date,
+	date: new Date(),
 	crossStreet1: "123 fake street",
 	crossStreet2: "456 not-fake street",
 	status: true

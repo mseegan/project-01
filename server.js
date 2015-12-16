@@ -40,6 +40,7 @@ app.get('/api', function api_index (req, res){
 app.get('/api/city', function showCity(req, res){
   db.City.find({}, function(err, city){
     if(err){console.log(err);}
+    console.log("\nCity Returned: " , city);
     res.json(city);
   });
   
