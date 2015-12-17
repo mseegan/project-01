@@ -82,13 +82,19 @@ app.get('/api/city/:id/report', function showOneCity(req, res){
 });
 
 //create a report
-app.post('/api/city/:id/report', function createReport (req, res){
+app.post('/api/city/:cityId/report', function createReport (req, res){
   console.log('body', req.body);
-  db.Report.create(req.body, function(err, city) {
-     if (err) { console.log('error', err); }
-     console.log(report);
-     res.json(report);
-  });
+    // db.City.findOne({_id: req.params.cityId}, function(err, city){
+    //   if (err) { console.log('error', err); }
+    //   var report = new db.Report(req.body);
+    //   city.report.push(report);
+    //   city.save(function(err, savedCity){
+    //     if (err) { console.log('error', err); }
+    //     console.log('city with new report saved', savedCity);
+    //   res.json(report);
+    //   });
+    // });
+  
 });
 //update a report
 
