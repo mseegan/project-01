@@ -73,13 +73,23 @@ app.post('/api/city', function cityCreate(req, res) {
 
 
 //read all reports
-app.get('/api/city/:id/report', function showOneCity(req, res){
+app.get('/api/city/:id/report', function showAllReports(req, res){
 	
   db.City.findOne({_id: req.params.id}, function(err, city) {
     res.json(city.reports);
   });
   
 });
+
+app.get('/api/city/:cityId/report/:id', function showOneReport(req, res){
+  db.City.findOne({_id: req.params.cityId}, function(err, city){
+    var cityId = req.params.id;
+    cityId.findOne({_id:req.param.id}, function(err,report) {
+
+    });
+  });
+});
+
 
 //create a report
 app.post('/api/city/:cityId/report', function createReport (req, res){

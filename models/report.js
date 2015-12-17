@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var reportSchema = new Schema({
 	date: Date,
+	reportId: String,
 	crossStreet1: String,
 	crossStreet2: String,
 	status: Boolean
