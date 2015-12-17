@@ -81,6 +81,19 @@ app.get('/api/city/:id/report', function showOneCity(req, res){
   
 });
 
+//create a report
+app.post('/api/city/:id/report', function createReport (req, res){
+  console.log('body', req.body);
+  db.Report.create(req.body, function(err, city) {
+     if (err) { console.log('error', err); }
+     console.log(report);
+     res.json(report);
+  });
+});
+//update a report
+
+//destroy a report
+
 
 
 app.listen(process.env.PORT || 3000, function () {

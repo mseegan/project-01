@@ -19,5 +19,30 @@
 <body>
 <p id="renderReports">
 </p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Report New Pothole
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Report Pothole</h4>
+      </div>
+      <div class="modal-body">
+        <input id="crossStreetForm1" type="text" placeholder="123 fake street">
+        <input id="crossStreetForm2" type="text" placeholder="123 fake street">
+        <form action="demo_form.asp">
+	      <input type="checkbox" name="vehicle" value="Fixed?">is the pothole fixed?<br>
+	      <input type="submit" value="Submit">
+	    </form>
+        <button class="submit" type="submit" value="send">Add City</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
 </body>
 </html>
