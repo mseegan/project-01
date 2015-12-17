@@ -83,7 +83,12 @@ app.get('/api/city/:id/report', function showOneCity(req, res){
 
 //create a report
 app.post('/api/city/:cityId/report', function createReport (req, res){
-  console.log('body', req.body);
+  console.log("YOU HIT POST!");
+  var myId = req.params.cityId;
+  var body = req.body;
+  console.log("myId", myId);
+  console.log("body should be an obj", body);
+  res.send("okay!");
     // db.City.findOne({_id: req.params.cityId}, function(err, city){
     //   if (err) { console.log('error', err); }
     //   var report = new db.Report(req.body);
