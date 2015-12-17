@@ -80,7 +80,7 @@ app.get('/api/city/:id/report', function showAllReports(req, res){
   });
   
 });
-
+//read one report
 app.get('/api/city/:cityId/report/:id', function showOneReport(req, res){
   db.City.findById({_id: req.params.cityId}, function(err, city){
     var report = city.reports.id(req.params.id);
