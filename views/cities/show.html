@@ -32,11 +32,11 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Report Pothole</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="reportForm">
         <input id="crossStreetForm1" type="text" placeholder="123 fake street">
         <input id="crossStreetForm2" type="text" placeholder="123 fake street">
         <form action="demo_form.asp">
-	      <input type="checkbox" name="vehicle" value="Fixed?">is the pothole fixed?<br>
+	      <input type="checkbox" name="vehicle" value="Fixed" id="fixed">is the pothole fixed?<br>
 	    </form>
       </div>
       <div class="modal-footer">
