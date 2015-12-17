@@ -7,8 +7,10 @@ $(document).ready(function() {
   		method: 'GET',
   		url: '/api/city/' + cityId,
   		success: function(data) {
-  			console.log(data);
-  			$('#renderReports').append(data.reports);
+  			console.log(data.reports[0]);
+  			dataHtml = data.reports[0];
+  			$("#renderReports").append(dataHtml);
+
   			
   		}
 
