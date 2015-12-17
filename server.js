@@ -82,39 +82,57 @@ app.get('/api/city/:id/report', function showAllReports(req, res){
 });
 
 app.get('/api/city/:cityId/report/:id', function showOneReport(req, res){
-  db.City.findOne({_id: req.params.cityId}, function(err, city){
-    var cityId = req.params.id;
-    cityId.findOne({_id:req.param.id}, function(err,report) {
+  db.City.findById({_id: req.params.cityId}, function(err, city){
+    var report = city.reports.id(req.params.id);
+    console.log(report);
 
-    });
+    
   });
 });
 
 
 //create a report
 app.post('/api/city/:cityId/report', function createReport (req, res){
-  console.log("YOU HIT POST!");
-  var myId = req.params.cityId;
-  var body = req.body;
-  console.log("myId", myId);
-  console.log("body should be an obj", body);
-  res.send("okay!");
-    // db.City.findOne({_id: req.params.cityId}, function(err, city){
-    //   if (err) { console.log('error', err); }
-    //   var report = new db.Report(req.body);
-    //   city.report.push(report);
-    //   city.save(function(err, savedCity){
-    //     if (err) { console.log('error', err); }
-    //     console.log('city with new report saved', savedCity);
-    //   res.json(report);
-    //   });
-    // });
+  
+  var cityId = req.params.cityId;
+  var newReport = new Report(req.body.reports);
+  db.City.findOne({_id: cityId}, function (err, foundCity){
+    foundCity.reports.push(newReport);
+    foundCity.save(function (err, savedCity){
+      res.json(newReport);
+    });
+  });
+  
   
 });
 //update a report
+app.put('/api/city/:cityId/report/:id', function (req, res){
+  var cityId = req.params.cityId;
+  var reportId = req.params.id;
 
+ db.city.findOne({_id: cityId}, function (err, foundCity){
+  var foundReport = foundCity.reports.id(reportId);
+
+  foundReport.text = req.body.report.text;
+  foundReport.completed = req.body.report.completed;
+  foundCity.save(function (err, savedCity){
+    res.json(foundCity);
+  });
+ });
+});
 //destroy a report
+app.delete('/api/city/:cityId/report/:id', function (req, res) {
+  var listId = req.params.cityId;
+  var reportId = req.params.id;
 
+  db.city.findOne({_id: cityId}, function (err, foundCity){
+    var foundReport = foundCity.reports.id(reportId);
+    foundReport.remove();
+    foundCity.save(function (err, savedList){
+      res.json(foundCity);
+    });
+  });
+});
 
 
 app.listen(process.env.PORT || 3000, function () {
