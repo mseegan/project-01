@@ -7,14 +7,24 @@ $(document).ready(function() {
   		method: 'GET',
   		url: '/api/city/' + cityId,
   		success: function(data) {
+  			console.log(data.reports);
   			console.log(data.reports[0]);
-  			dataHtml = data.reports[0];
-  			$("#renderReports").append(dataHtml);
+  			console.log(data.reports[0].crossStreet1);
+  			console.log(data.reports[0].crossStreet2);
+  			console.log(data.reports[0].status);
+  			console.log(data.reports[0]._id);
+  			
+  			$("#renderReports").append(data.reports[0]._id);
+
+
+  			
 
   			
   		}
 
   	});
+
+  	
 });
 
 
