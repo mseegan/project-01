@@ -11,9 +11,7 @@ $(document).ready(function() {
   			
   			
   			generateHtml(data);
-  			
-  		}
-
+  			}
   	});
 
   	function showValues() {
@@ -26,23 +24,39 @@ $(document).ready(function() {
   			success: function(data) {
   				console.log(data);
   				$('#renderReports').html(generateHtml(data));
-  				
-
   			}
   		});
   		 }
   	$("#reportButton").click(function() {
    		event.preventDefault();
-  		console.log("button pressed");
-  	
   		showValues();
   	});
-  	
-});	
 
+
+  	function deleteReport() {
+  		var reportId =$(this).data('data-id');
+  		console.log(reportId);
+  		var cityId = window.location.pathname.split('/')[2];
+  		$.ajax({
+  			type: 'DELETE',
+  			url: '/api/city/' + cityId + '/report/:id',
+  			success: function(data) {
+  				
+  			}
+  		});
+  	}
+  	$("#deleteButton").click(function() {
+		event.preventDefault();
+		console.log("delete button pressed");
+		deleteReport();
+	});
+  	
+
+
+});	
 function generateHtml (data){
 	console.log(data.reports[0]);
-	var cityId = window.location.pathname.split('/')[2];
+	
 	// console.logs(cityId);
 
 		var source3 = $('#report-template').html();
@@ -52,10 +66,8 @@ function generateHtml (data){
 		
 			// console.log(data);
 			var dataHtml = template({report: data.reports});
-			console.log('hello daniel');
-			console.log(data);
-			console.log('something above here');
-			$('#renderReports').append(dataHtml + '<input type="button" data-id="_id" value="delete"/>');
+			
+			$('#renderReports').append(dataHtml);
 		
 
 	
