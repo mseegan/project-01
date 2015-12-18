@@ -95,7 +95,8 @@ app.get('/api/city/:cityId/report/:id', function showOneReport(req, res){
 app.post('/api/city/:cityId/report', function createReport (req, res){
   
   var cityId = req.params.cityId;
-  var newReport = new Report(req.body.reports);
+  var newReport = new db.Report(req.body);
+  console.log(req.body);
   db.City.findOne({_id: cityId}, function (err, foundCity){
     foundCity.reports.push(newReport);
     foundCity.save(function (err, savedCity){

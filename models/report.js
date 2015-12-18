@@ -6,7 +6,7 @@ var reportSchema = new Schema({
 	reportId: String,
 	crossStreet1: String,
 	crossStreet2: String,
-	status: Boolean
+	status: String
 
 });
 

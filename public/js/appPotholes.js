@@ -18,22 +18,34 @@ $(document).ready(function() {
   		}
 
   	});
+
+  	function showValues() {
+  		var formData = $('#reportForm').serialize();
+  		console.log(formData);
+  		$.ajax({
+  			type:  'POST',
+  			url: '/api/city/' + cityId + '/report',
+  			data: formData,
+  			success: function(data) {
+  				console.log(data);
+  				$('#renderReports').html(data);
+  			}
+  		});
+  		 }
   	$("#reportButton").click(function() {
    		event.preventDefault();
   		console.log("button pressed");
-  		var xStreet1 = $('#crossStreetForm1').val();
-  		var xStreet2 = $('#crossStreetForm2').val();
-  		var fixed = $('#fixed').val();
+  	// 	var xStreet1 = $('#crossStreetForm1').val();
+  	// 	var xStreet2 = $('#crossStreetForm2').val();
+  	// 	var fixed = $('#fixed').val();
   		
-  			if ($('#fixed').is(":checked")){
+  	// 		if ($('#fixed').is(":checked")){
   				
-  				console.log($("input[type='checkbox']").val());
-  			}
-  		
-  		
-	
+  	// 			console.log($("input[type='checkbox']").val());
+  	// 		}
+  		showValues();
   	});
-});
-
+  	
+});	
 
 
