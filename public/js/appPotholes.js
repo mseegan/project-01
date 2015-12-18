@@ -34,20 +34,24 @@ $(document).ready(function() {
 
 
   	function deleteReport() {
-  		var reportId =$(this).data('data-id');
-  		console.log(reportId);
-  		var cityId = window.location.pathname.split('/')[2];
+  		
   		$.ajax({
   			type: 'DELETE',
-  			url: '/api/city/' + cityId + '/report/:id',
+  			url: '/api/city/' + cityId + '/report/' + id,
   			success: function(data) {
-  				
+  				console.log(id);
+
   			}
   		});
   	}
-  	$("#deleteButton").click(function() {
+  	$("#renderReports").on('click','#deleteButton',function() {
 		event.preventDefault();
 		console.log("delete button pressed");
+		var reportId = $(this).data('data-id');
+  		console.log($(this));
+  		var cityId = window.location.pathname.split('/')[2];
+  		var id = $(this).attr("data-id");
+  		console.log(id);
 		deleteReport();
 	});
   	

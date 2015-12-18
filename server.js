@@ -108,7 +108,7 @@ app.post('/api/city/:cityId/report', function createReport (req, res){
 });
 //update a report
 app.put('/api/city/:cityId/report/:id', function (req, res){
-  var cityId = req.params.cityId;
+  var CityId = req.params.cityId;
   var reportId = req.params.id;
 
  db.city.findOne({_id: cityId}, function (err, foundCity){
@@ -125,8 +125,9 @@ app.put('/api/city/:cityId/report/:id', function (req, res){
 app.delete('/api/city/:cityId/report/:id', function (req, res) {
   var listId = req.params.cityId;
   var reportId = req.params.id;
+  var cityId = req.params.cityId;
 
-  db.city.findOne({_id: cityId}, function (err, foundCity){
+  db.City.findOne({_id: cityId}, function (err, foundCity){
     var foundReport = foundCity.reports.id(reportId);
     foundReport.remove();
     foundCity.save(function (err, savedList){
