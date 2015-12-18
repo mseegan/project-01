@@ -53,30 +53,31 @@ $(document).ready(function() {
   	}
 	});
 
-	$('#renderReports').on('click', '#updateButton', function(){
-		event.preventDefault();
-		console.log('button update pressed');
-		var cityId = window.location.pathname.split('/')[2];
-		var id = $(this).attr("data-id");
-		console.log($(this).attr("data-id"));
-		function updateReport(event) {
-  			$.ajax({
-  				type: 'PUT',
-  				url: '/api/city/' + cityId + '/report/' + id,
-  				success: function(data) {
-  					
-  				}
-  			});
+// 	$('#renderReports').on('click', '#updateButton', function(){
+// 		event.preventDefault();
+// 		console.log('button update pressed');
+// 		var cityId = window.location.pathname.split('/')[2];
+// 		var id = $(this).attr("data-id");
+		
+// 		console.log($(this).attr("data-id"));
+// 		function updateReport(event) {
+//   			$.ajax({
+//   				type: 'PUT',
+//   				url: '/api/city/' + cityId + '/report/' + id,
+//   				success: function(data) {
+
+//   				}
+//   			});
 	
   	
 
 
-  	}
-  	});
+//   	}
+//   	});
 
-});	
+// });	
 function generateHtml (data){
-	console.log(data.reports[0]);
+	console.log(data.reports);
 	
 	// console.logs(cityId);
 
