@@ -18,6 +18,20 @@
 </head>
 <body>
 <p id="renderReports">
+<!-- handlebars template -->
+			        <script id="report-template" type="text/x-handlebars-template">
+			          	{{#each report}}
+				  			<div class="list-goup-item city" data-id="{{_id}}">
+				    			
+				    			<div class="body">
+				    				{{_id}}
+				    				{{crossStreet1}}
+				      				{{crossStreet2}}
+				      				{{status}}
+				    			</div>
+				  			</div>
+			  			{{/each}}
+					</script>
 </p>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -35,7 +49,7 @@
       <div class="modal-body" >
       <form id="reportForm">
         <input id="crossStreetForm1" name="crossStreet1" type="text" placeholder="123 fake street">
-        <input id="crossStreetForm2" name="crossStreet2" type="text" placeholder="123 fake street">
+        <input id="crossStreetForm2" name="crossStreet2"type="text" placeholder="123 fake street">
         <input type="checkbox" name="status" value="Fixed" id="fixed">is the pothole fixed?<br>
 	  </form>
       </div>

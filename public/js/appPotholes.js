@@ -9,9 +9,9 @@ $(document).ready(function() {
   		success: function(data) {
   			
   			
-  			data.reports.forEach(function callback (e){
-  			$('#renderReports').html(generateHtml(data));
-  			});	
+  			
+  			generateHtml(data);
+  			
   		}
 
   	});
@@ -41,8 +41,22 @@ $(document).ready(function() {
 });	
 
 function generateHtml (data){
-	console.log(data._id);
+	console.log(data.reports[0]);
 	var cityId = window.location.pathname.split('/')[2];
-	console.log(cityId);
-	$('#renderReports').append( data._id + '<input type="button" data-id="_id" value="delete"/>');
+	// console.logs(cityId);
+
+		var source3 = $('#report-template').html();
+		// console.log(source3);
+		var template = Handlebars.compile(source3);
+		// console.log("template here:",template);
+		
+			// console.log(data);
+			var dataHtml = template({report: data.reports});
+			console.log('hello daniel');
+			console.log(data);
+			console.log('something above here');
+			$('#renderReports').append(dataHtml + '<input type="button" data-id="_id" value="delete"/>');
+		
+
+	
 }
