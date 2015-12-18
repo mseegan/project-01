@@ -27,7 +27,30 @@
 				    				
 				    				{{crossStreet1}}
 				      				{{crossStreet2}}
-				      				{{status}} <input type="button" id="deleteButton" data-id="{{_id}}" value="delete"/>
+				      				{{status}} <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+  Update Pothole
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Report Pothole</h4>
+      </div>
+      <div class="modal-body" >
+      <form id="reportForm">
+        <input id="crossStreetForm1" name="crossStreet1" type="text" placeholder="123 fake street">
+        <input id="crossStreetForm2" name="crossStreet2"type="text" placeholder="123 fake street">
+        <input type="checkbox" name="status" value="Fixed" id="fixed">is the pothole fixed?<br>
+	  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="reportButton" class="btn btn-primary">update</button>
+				      				<input type="button" id="deleteButton" data-id="{{_id}}" value="delete"/>
 				    			</div>
 				  			</div>
 			  			{{/each}}
