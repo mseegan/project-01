@@ -33,26 +33,26 @@ $(document).ready(function() {
   	});
 
 
-  	function deleteReport() {
+  	
+  	$("#renderReports").on('click','#deleteButton',function() {
+		event.preventDefault();
+		console.log("delete button pressed");
+  		var cityId = window.location.pathname.split('/')[2];
+  		var id = $(this).attr("data-id");
+  		
+		deleteReport();
+		function deleteReport() {
   		
   		$.ajax({
   			type: 'DELETE',
   			url: '/api/city/' + cityId + '/report/' + id,
   			success: function(data) {
-  				console.log(id);
+  				$(this).parent('.report').remove();
+
 
   			}
   		});
   	}
-  	$("#renderReports").on('click','#deleteButton',function() {
-		event.preventDefault();
-		console.log("delete button pressed");
-		var reportId = $(this).data('data-id');
-  		console.log($(this));
-  		var cityId = window.location.pathname.split('/')[2];
-  		var id = $(this).attr("data-id");
-  		console.log(id);
-		deleteReport();
 	});
   	
 
