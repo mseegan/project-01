@@ -10,10 +10,7 @@ $(document).ready(function() {
   			
   			
   			data.reports.forEach(function callback (e){
-  			$("#renderReports").append(data.reports[0].crossStreet1);
-  			$("#renderReports").append(data.reports[0].crossStreet2);
-  			$("#renderReports").append(data.reports[0].status);
-  			$("#renderReports").append(data.reports[0]._id);
+  			$('#renderReports').html(generateHtml(data));
   			});	
   		}
 
@@ -28,24 +25,24 @@ $(document).ready(function() {
   			data: formData,
   			success: function(data) {
   				console.log(data);
-  				$('#renderReports').html(data);
+  				$('#renderReports').html(generateHtml(data));
+  				
+
   			}
   		});
   		 }
   	$("#reportButton").click(function() {
    		event.preventDefault();
   		console.log("button pressed");
-  	// 	var xStreet1 = $('#crossStreetForm1').val();
-  	// 	var xStreet2 = $('#crossStreetForm2').val();
-  	// 	var fixed = $('#fixed').val();
-  		
-  	// 		if ($('#fixed').is(":checked")){
-  				
-  	// 			console.log($("input[type='checkbox']").val());
-  	// 		}
+  	
   		showValues();
   	});
   	
 });	
 
-
+function generateHtml (data){
+	console.log(data._id);
+	var cityId = window.location.pathname.split('/')[2];
+	console.log(cityId);
+	$('#renderReports').append( data._id + '<input type="button" data-id="_id" value="delete"/>');
+}
