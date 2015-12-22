@@ -5,7 +5,7 @@
 	<title>Make Template Later</title>
 	<!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  
+
 	<!-- jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -14,7 +14,7 @@
   	<!-- vendor scripts -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- custom script -->
-  <script type="text/javascript" src="/js/appPotholes.js"></script>
+  <script type="text/javascript" src="/js/cities/show.js"></script>
 </head>
 <body>
 <p id="renderReports">
@@ -22,12 +22,12 @@
 			        <script id="report-template" type="text/x-handlebars-template">
 			          	{{#each report}}
 				  			<div class="list-group-item report" data-id="{{_id}}">
-				    			
+
 				    			<div class="body">
-				    				
+
 				    				{{crossStreet1}}
 				      				{{crossStreet2}}
-				      				{{status}} 
+				      				{{status}}
 				      				<input type="button" id="deleteButton" data-id="{{_id}}" value="delete"/>
 				    			</div>
 				  			</div>
