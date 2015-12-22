@@ -21,6 +21,8 @@ var db = require("./models");
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+// usually we make these plural; e.g. cities not city
 app.get('/city', function citypage (req, res){
 	res.sendFile(__dirname + '/views/city.html');
 });
@@ -46,7 +48,7 @@ app.get('/api/city', function showCity(req, res){
     console.log("\nCity Returned: " , city);
     res.json(city);
   });
-  
+
 });
 //read one city
 app.get('/api/city/:id', function showOneCity(req, res){
@@ -54,7 +56,7 @@ app.get('/api/city/:id', function showOneCity(req, res){
   db.City.findOne({_id: req.params.id}, function(err, city) {
     res.json(city);
   });
-  
+
 });
 
 //create a city
@@ -74,11 +76,11 @@ app.post('/api/city', function cityCreate(req, res) {
 
 //read all reports
 app.get('/api/city/:id/report', function showAllReports(req, res){
-	
+
   db.City.findOne({_id: req.params.id}, function(err, city) {
     res.json(city.reports);
   });
-  
+
 });
 //read one report
 app.get('/api/city/:cityId/report/:id', function showOneReport(req, res){
@@ -93,7 +95,7 @@ app.get('/api/city/:cityId/report/:id', function showOneReport(req, res){
 
 //create a report
 app.post('/api/city/:cityId/report', function createReport (req, res){
-  
+
   var cityId = req.params.cityId;
   var newReport = new db.Report(req.body);
   console.log(req.body);
@@ -103,8 +105,8 @@ app.post('/api/city/:cityId/report', function createReport (req, res){
       res.json(newReport);
     });
   });
-  
-  
+
+
 });
 //update a report
 app.put('/api/city/:cityId/report/:id', function (req, res){
