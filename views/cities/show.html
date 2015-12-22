@@ -17,28 +17,30 @@
   <script type="text/javascript" src="/js/cities/show.js"></script>
 </head>
 <body>
-<p id="renderReports">
-<!-- handlebars template -->
-			        <script id="report-template" type="text/x-handlebars-template">
-			          	{{#each reports}}
-				  			<div class="list-group-item report" data-id="{{_id}}">
+	<div class="container">
+		<p id="renderReports">
+		<!-- handlebars template -->
+					        <script id="report-template" type="text/x-handlebars-template">
+					          	{{#each reports}}
+						  			<div class="list-group-item report" data-id="{{_id}}">
 
-				    			<div class="body">
+						    			<div class="body">
 
-				    				{{crossStreet1}}
-				      				{{crossStreet2}}
-				      				{{status}}
-				      				<input type="button" id="deleteButton" data-id="{{_id}}" value="delete"/>
-				    			</div>
-				  			</div>
-			  			{{/each}}
-					</script>
-</p>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Report New Pothole
-</button>
-
+						    				{{crossStreet1}}
+						      				{{crossStreet2}}
+						      				{{status}}
+						      				<input type="button" id="deleteButton" data-id="{{_id}}" value="delete"/>
+						    			</div>
+						  			</div>
+					  			{{/each}}
+							</script>
+		</p>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		  Report New Pothole
+		</button>
+	</div>
+	
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
