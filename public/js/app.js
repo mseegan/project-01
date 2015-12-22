@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 		var dataHtml = template({city: data});
 		console.log(data);
-		
+
 		$("#dropdownMenu").append(dataHtml);
 		console.log("handlebars appended city to dropdown menu");
 	});
@@ -22,7 +22,7 @@ $(document).ready(function() {
 		console.log(selectId);
 		window.location.href = '/city/' + selectId;
 
-		
+
 
 	});
 	//create new city
@@ -42,12 +42,7 @@ $(document).ready(function() {
 			//if no duplicates found, continue with create
 		if(!itemExists) {
 			var formData = $('#formData').serialize();
-			var cityData = $('#cityForm').val();
-			var stateData = $('#stateForm').val();
-			// console.log(formData);
-			// console.log(cityData);
-			// console.log(stateData);
-			
+		
 			$.ajax({
 				method: 'POST',
 				url: '/api/city',
@@ -59,10 +54,10 @@ $(document).ready(function() {
 					console.log("city added");
 				}
 			});
-			
 
-			
-		
+
+
+
 
 		}
 	});
@@ -75,8 +70,8 @@ $(document).ready(function() {
 
 		$('#cityShow').css('display', 'inline-block');
 	});
-	
-	
 
-	
+
+
+
 });
